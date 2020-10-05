@@ -1,0 +1,16 @@
+{
+  "name": "grzegorz-pabis-website",
+  "version": "1.0.0",
+  "description": "Portfolio website ",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "Grzegorz Pabis",
+  "license": "ISC"
+}

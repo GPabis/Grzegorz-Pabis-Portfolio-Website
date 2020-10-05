@@ -1,0 +1,416 @@
+body {
+  margin: auto 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+nav {
+  height: 8vh;
+  min-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  // border-bottom: 1px solid #ddd;
+  padding: 7px 15px;
+  .logo {
+    display: flex;
+    width: 150px;
+    &-name {
+      padding-left: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      p {
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        margin: 0;
+        @media (min-width: 1400px) {
+          font-size: 30px;
+        }
+      }
+    }
+
+    img {
+      height: 100%;
+      min-height: 40px;
+    }
+  }
+  .menu {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      align-items: center;
+      height: 100%;
+
+      :nth-child(6),
+      :nth-child(7),
+      :nth-child(8) {
+        padding: 5px 10px;
+        color: #555;
+      }
+
+      li {
+        padding: 10px 10px;
+        margin: 0 5px;
+        border-radius: 3px;
+        transition: 0.15s;
+
+        &:hover {
+          background: #555;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+#welcome-section {
+  display: flex;
+  height: 85vh;
+  min-height: 600px;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 30px 30px 30px;
+  @media (min-width: 1400px) {
+    min-height: 800px;
+    justify-content: space-evenly;
+  }
+  .my-face-frame {
+    .my-face {
+      background-image: url("/dist/img/IMG_20191017_134904-kopia.jpg");
+      background-size: cover;
+      width: 400px;
+      height: 500px;
+      box-shadow: 0 0 25px 25px white inset;
+      @media (min-width: 1400px) {
+        width: 600px;
+        height: 750px;
+        margin-right: 50px;
+      }
+    }
+  }
+  .short-about-me {
+    width: 700px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 23px;
+    @media (min-width: 1400px) {
+      font-size: 28px;
+      width: 800px;
+    }
+
+    h1 {
+      font-size: 2.3em;
+      margin: 15px 0 30px 0;
+      color: #333;
+    }
+    p {
+      font-size: 1em;
+      margin: 13px 0;
+      text-align: justify;
+    }
+    .about-me-link {
+      margin: 20px 0;
+      align-self: center;
+      padding: 15px 40px;
+      font-size: 0.75em;
+      width: 430px;
+      border: 3px solid #333;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      transition: 0.15s;
+      &:hover {
+        background: #333;
+        color: white;
+        text-decoration: underline;
+      }
+    }
+    .portfolio-link {
+      font-size: 0.5em;
+      align-self: center;
+      color: #000;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.btn-white {
+  font-weight: bold;
+  display: block;
+  width: 170px;
+  padding: 5px 20px;
+  background: white;
+  color: #000;
+  border: 1px solid black;
+  text-transform: uppercase;
+  margin: 2px;
+  transition: 0.15s;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+  &:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 50px;
+  }
+  &:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 50px;
+  }
+  &:hover {
+    background: #ddd;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-white-active {
+  background: #ccc;
+  &:hover {
+    background: #ccc;
+  }
+}
+
+.btn-white-blocked {
+  background: #666;
+  cursor: default;
+  &:hover {
+    background: #666;
+  }
+}
+
+#about-me-timeline {
+  height: 93vh;
+  min-height: 750px;
+  background: #333;
+  box-shadow: 0px 0px 30px 40px #333;
+  color: white;
+  text-align: center;
+  h1 {
+    padding: 10px 20px;
+    font-size: 40px;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    display: inline-block;
+    margin: 10px 0;
+  }
+  .timeline-buttons {
+    margin: 10px 0 50px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .timeline-container {
+    display: block;
+    height: 300px;
+    .timeline {
+      display: flex;
+      position: relative;
+      margin: 0px auto;
+      top: 120px;
+      padding: 20px;
+      list-style-type: none;
+      &:after {
+        position: absolute;
+        right: 0%;
+        top: 0;
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 6px;
+        margin-left: -3px;
+        background: #fff;
+        z-index: 5;
+      }
+
+      .item-top {
+        position: absolute;
+        padding: 10px;
+        top: -120px;
+        text-align: center;
+        left: 50px;
+        display: block;
+        height: 80px;
+        width: 250px;
+        border: 1px white solid;
+        background: white;
+        color: black;
+        box-shadow: 4px 4px 4px #000;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -27px;
+          right: 45%;
+          height: 0;
+          width: 0;
+          border: solid transparent;
+          border-top-color: white;
+          border-width: 13px;
+          pointer-events: none;
+        }
+        .timeline-date {
+          display: block;
+          position: relative;
+          top: 135px;
+          color: white;
+          border: white 2px solid;
+          padding: 5px 0px;
+          font-weight: bold;
+        }
+        .timeline-title {
+          position: relative;
+          font-weight: bold;
+          top: -35px;
+          display: block;
+        }
+        .timeline-more {
+          background: white;
+          text-decoration: underline;
+          border: none;
+          padding: 5px 15px;
+          position: absolute;
+          left: 37%;
+          top: 65%;
+          font-size: 14px;
+          align-self: center;
+          display: block;
+          cursor: pointer;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .item-bottom {
+        position: absolute;
+        top: 25px;
+        padding: 10px;
+        display: block;
+        height: 80px;
+        width: 250px;
+        border: 1px white solid;
+        background: white;
+        color: black;
+        box-shadow: 4px 4px 4px #000;
+        &:after {
+          content: "";
+          position: absolute;
+          top: -27px;
+          right: 45%;
+          height: 0;
+          width: 0;
+          border: solid transparent;
+          border-bottom-color: white;
+          border-width: 13px;
+          pointer-events: none;
+        }
+        .timeline-date {
+          display: block;
+          position: relative;
+          top: -85px;
+          color: white;
+          border: white 2px solid;
+          padding: 5px 0px;
+          font-weight: bold;
+        }
+        .timeline-title {
+          position: relative;
+          font-weight: bold;
+          top: -35px;
+          display: block;
+        }
+        .timeline-more {
+          background: white;
+          text-decoration: underline;
+          border: none;
+          padding: 5px 15px;
+          position: absolute;
+          left: 37%;
+          top: 65%;
+          font-size: 14px;
+          align-self: center;
+          display: block;
+        }
+      }
+
+      .first-item {
+        left: 2vw;
+        @media (max-width: 1050px) {
+          left: 10vw;
+        }
+      }
+      .secound-item {
+        left: 26vw;
+        @media (max-width: 1050px) {
+          left: 30vw;
+        }
+      }
+      .third-item {
+        left: 50vw;
+        @media (max-width: 1050px) {
+          left: 50vw;
+        }
+      }
+      .fourth-item {
+        left: 74vw;
+        @media (max-width: 1050px) {
+          left: 70vw;
+        }
+      }
+      .fifth-item {
+        left: 82vw;
+        display: none;
+        @media (max-width: 1050px) {
+          display: none;
+        }
+      }
+    }
+  }
+  .timeline-more-panel {
+    display: flex;
+    background: #555;
+    margin: 0 auto;
+    width: 90%;
+    border: 3px solid #fff;
+    padding: 5px 0 5px 15px;
+    .timeline-description {
+      text-align: left;
+      width: 80%;
+      border-right: solid 2px #fff;
+    }
+    .pros {
+      display: flex;
+      flex-basis: 500px;
+      padding: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0;
+      width: 100%;
+      li {
+        border-bottom: 2px white solid;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        &:last-child {
+          border-bottom: none;
+        }
+        i {
+          color: yellowgreen;
+        }
+      }
+    }
+  }
+}
