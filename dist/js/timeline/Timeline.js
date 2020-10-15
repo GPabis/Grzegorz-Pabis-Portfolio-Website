@@ -1,19 +1,60 @@
-class TimelineNav {
+class Timeline {
   constructor() {
+    this.timelineData = timelineData;
     this.currentCategory = "education";
     this.currentFirstItem = 0;
+    this._renderFirstTime();
   }
 
-  getCurrentCategory = () => this.currentCategory;
+  _getCurrentFirstItem = () => this.currentFirstItem;
 
-  setCurrentCategory = (category) => {
-    this.currentCategory = category;
+  _setCurrentFirstItem = (number) => {
+    this.currentFirstItem = number;
   };
 
-  getCurrentFirstItem = () => this.currentFirstItem;
+  _generateTimelineItems = () => {
+    const items = [];
+    this.timelineData[this.currentCategory].forEach((item, index) => {
+      items.push(
+        this._createTimelineItem(index, item.date, item.title, item.no)
+      );
+    });
+    document.querySelector(".timeline").innerHTML += items.join("");
+  };
 
-  setCurrentFirstItem = (number) => {
-    this.currentFirstItem = number;
+  _createTimelineItem = (itemIndex, date, title, itemNo) => {
+    return `
+    <li class="${this._setTimelineItemStyle(
+      itemIndex
+    )}" style="left: ${this._setTimelineAlign(itemIndex)}vw;">
+    <span class="timeline-date">${date}</span
+    ><span class="timeline-title"
+      >${title}</span
+    ><button class="timeline-more" data-index="${itemNo}">More...</button>
+  </li>`;
+  };
+
+  _resetTimelineStyles = () => {
+    const items = Array.from(document.querySelector(".timeline").children);
+    items.forEach((item) => (item.className = ""));
+  };
+
+  _setTimelineAlign = (itemIndex) => {
+    return 2 + 24 * itemIndex;
+  };
+
+  _setTimelineItemStyle = (itemIndex) => {
+    const itemPosition = itemIndex % 2 === 0 ? "item-top" : "item-bottom";
+    return itemPosition;
+  };
+
+  _setAgainTimelineStyles = () => {
+    const items = Array.from(document.querySelector(".timeline").children);
+    items.forEach((item, index) => {
+      item.style.cssText += `transform:translateX(${
+        24 * -this.currentFirstItem
+      }vw); transition-duration: .3s;`;
+    });
   };
 
   _setButtonActive = () => {
@@ -93,4 +134,23 @@ class TimelineNav {
     buttonLeft.addEventListener("click", this._prevItem);
     this._startEventListenerForCategory();
   };
+
+  _removeItems() {
+    document.querySelector(".timeline").innerHTML = "";
+  }
+
+  _renderFirstTime = () => {
+    if (this._removeItems()) _removeItems();
+    this._generateTimelineItems();
+    this._setButtonBlocked();
+    this._setButtonActive();
+    this._startEventListener();
+  };
+
+  _render = () => {
+    this._setAgainTimelineStyles();
+    this._setButtonBlocked();
+    this._setButtonActive();
+  };
 }
+const t = new Timeline();

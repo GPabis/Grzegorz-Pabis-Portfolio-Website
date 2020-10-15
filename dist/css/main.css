@@ -70,7 +70,7 @@ nav {
     @media (min-width: 1400px) {
       #welcome-section .my-face-frame .my-face {
         width: 600px;
-        height: 750px;
+        height: 700px;
         margin-right: 50px; } }
   #welcome-section .short-about-me {
     width: 700px;
@@ -94,6 +94,7 @@ nav {
       text-align: justify; }
     #welcome-section .short-about-me .about-me-link {
       margin: 20px 0;
+      text-align: center;
       align-self: center;
       padding: 15px 40px;
       font-size: 0.75em;
@@ -102,7 +103,7 @@ nav {
       text-decoration: none;
       color: #000;
       font-weight: bold;
-      transition: 0.15s; }
+      transition: 0.2s; }
       #welcome-section .short-about-me .about-me-link:hover {
         background: #333;
         color: white;
@@ -153,8 +154,8 @@ nav {
     background: #666; }
 
 #about-me-timeline {
-  height: 93vh;
-  min-height: 750px;
+  height: 90vh;
+  min-height: 700px;
   background: #333;
   box-shadow: 0px 0px 30px 40px #333;
   color: white;
@@ -173,6 +174,9 @@ nav {
   #about-me-timeline .timeline-container {
     display: block;
     height: 300px; }
+    @media (min-height: 800px) {
+      #about-me-timeline .timeline-container {
+        height: 375px; } }
     #about-me-timeline .timeline-container .timeline {
       display: flex;
       position: relative;
@@ -287,59 +291,42 @@ nav {
           top: 65%;
           font-size: 14px;
           align-self: center;
-          display: block; }
-      #about-me-timeline .timeline-container .timeline .first-item {
-        left: 2vw; }
-        @media (max-width: 1050px) {
-          #about-me-timeline .timeline-container .timeline .first-item {
-            left: 10vw; } }
-      #about-me-timeline .timeline-container .timeline .secound-item {
-        left: 26vw; }
-        @media (max-width: 1050px) {
-          #about-me-timeline .timeline-container .timeline .secound-item {
-            left: 30vw; } }
-      #about-me-timeline .timeline-container .timeline .third-item {
-        left: 50vw; }
-        @media (max-width: 1050px) {
-          #about-me-timeline .timeline-container .timeline .third-item {
-            left: 50vw; } }
-      #about-me-timeline .timeline-container .timeline .fourth-item {
-        left: 74vw; }
-        @media (max-width: 1050px) {
-          #about-me-timeline .timeline-container .timeline .fourth-item {
-            left: 70vw; } }
-      #about-me-timeline .timeline-container .timeline .fifth-item {
-        left: 82vw;
-        display: none; }
-        @media (max-width: 1050px) {
-          #about-me-timeline .timeline-container .timeline .fifth-item {
-            display: none; } }
+          display: block;
+          cursor: pointer; }
+          #about-me-timeline .timeline-container .timeline .item-bottom .timeline-more:focus {
+            outline: none; }
   #about-me-timeline .timeline-more-panel {
     display: flex;
-    background: #555;
+    color: black;
+    background: #fff;
     margin: 0 auto;
     width: 90%;
-    border: 3px solid #fff;
-    padding: 5px 0 5px 15px; }
+    height: 200px;
+    border: 3px solid #000;
+    padding: 0px 0 0px 15px; }
     #about-me-timeline .timeline-more-panel .timeline-description {
       text-align: left;
       width: 80%;
-      border-right: solid 2px #fff; }
+      border-right: solid 2px #000; }
     #about-me-timeline .timeline-more-panel .pros {
       display: flex;
-      flex-basis: 500px;
+      flex-basis: 600px;
       padding: 0;
       flex-direction: column;
       justify-content: space-between;
       margin: 0;
       width: 100%; }
       #about-me-timeline .timeline-more-panel .pros li {
-        border-bottom: 2px white solid;
-        padding: 10px 10px;
+        border-bottom: 2px #000 solid;
         display: flex;
         justify-content: space-evenly;
-        align-items: center; }
+        align-items: center;
+        height: 100%; }
         #about-me-timeline .timeline-more-panel .pros li:last-child {
-          border-bottom: none; }
+          border-bottom: none;
+          padding-bottom: 2px; }
         #about-me-timeline .timeline-more-panel .pros li i {
-          color: yellowgreen; }
+          color: black; }
+
+#portfolio {
+  height: 98vh; }
